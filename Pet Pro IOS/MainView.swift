@@ -220,7 +220,7 @@ struct MainView: View {
                 }
                 .tag(1)
             
-            Text("Stats View Placeholder")
+            PetHealthStatsView()
                 .tabItem {
                     Image(systemName: "chart.bar.fill")
                     Text("Stats")
