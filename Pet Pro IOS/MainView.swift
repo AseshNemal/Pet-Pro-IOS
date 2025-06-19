@@ -213,7 +213,7 @@ struct MainView: View {
             }
             .tag(0)
             
-            Text("Records View Placeholder")
+            RecordsView()
                 .tabItem {
                     Image(systemName: "doc.text.fill")
                     Text("Records")
@@ -227,7 +227,7 @@ struct MainView: View {
                 }
                 .tag(2)
             
-            Text("Account View Placeholder")
+            AccountView()
                 .tabItem {
                     Image(systemName: "person.crop.circle.fill")
                     Text("Account")
