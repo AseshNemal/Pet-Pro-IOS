@@ -42,13 +42,16 @@ struct PetHealthStatsView: View {
                     }
                     .padding(.horizontal)
                     
+                    // Sorted data for charts and table
+                    let sortedHealthDataList = healthDataList.sorted { ($0.date ?? Date.distantPast) > ($1.date ?? Date.distantPast) }
+                    
                     // Charts
                     Group {
-                        ChartView(title: "Temperature (°C)", dataPoints: healthDataList.map { $0.temperature ?? 0 })
-                        ChartView(title: "Heart Rate (BPM)", dataPoints: healthDataList.map { $0.heartRate ?? 0 })
-                        ChartView(title: "Steps Count", dataPoints: healthDataList.map { $0.steps ?? 0 })
-                        ChartView(title: "Air Quality (ppm)", dataPoints: healthDataList.map { $0.airQuality ?? 0 })
-                        ChartView(title: "Humidity (%)", dataPoints: healthDataList.map { $0.humidity ?? 0 })
+                        ChartView(title: "Temperature (°C)", dataPoints: sortedHealthDataList.map { $0.temperature ?? 0 })
+                        ChartView(title: "Heart Rate (BPM)", dataPoints: sortedHealthDataList.map { $0.heartRate ?? 0 })
+                        ChartView(title: "Steps Count", dataPoints: sortedHealthDataList.map { $0.steps ?? 0 })
+                        ChartView(title: "Air Quality (ppm)", dataPoints: sortedHealthDataList.map { $0.airQuality ?? 0 })
+                        ChartView(title: "Humidity (%)", dataPoints: sortedHealthDataList.map { $0.humidity ?? 0 })
                     }
                     
                     // Data table
@@ -56,7 +59,7 @@ struct PetHealthStatsView: View {
                         Text("Recent Health Data")
                             .font(.headline)
                             .padding(.horizontal)
-                        TableView(data: healthDataList)
+                        TableView(data: sortedHealthDataList)
                     }
                 }
                 .padding(.vertical)
@@ -120,8 +123,15 @@ struct PetHealthStatsView: View {
                 self.healthDataList = newData.sorted { ($0.date ?? Date.distantPast) > ($1.date ?? Date.distantPast) }
                 let formatter = DateFormatter()
                 formatter.dateStyle = .medium
-                self.lastUpdated = "Last updated: \(formatter.string(from: Date()))"
-                self.connectionStatus = .connected
+                formatter.timeStyle = .short
+                if let latestDate = self.healthDataList.first?.date {
+                    self.lastUpdated = "Last updated: \(formatter.string(from: latestDate))"
+                    let timeInterval = Date().timeIntervalSince(latestDate)
+                    self.connectionStatus = timeInterval <= 600 ? .connected : .disconnected
+                } else {
+                    self.lastUpdated = "Last updated: Never"
+                    self.connectionStatus = .disconnected
+                }
             }
         }, withCancel: { error in
             print("Failed to fetch data: \(error.localizedDescription)")
@@ -162,11 +172,13 @@ struct ChartView: View {
             Text(title)
                 .font(.headline)
                 .padding(.horizontal)
-            Chart(dataPoints, id: \.self) { point in
-                LineMark(
-                    x: .value("Index", dataPoints.firstIndex(of: point) ?? 0),
-                    y: .value("Value", point)
-                )
+            Chart {
+                ForEach(Array(dataPoints.enumerated()), id: \.offset) { index, value in
+                    LineMark(
+                        x: .value("Index", index),
+                        y: .value("Value", value)
+                    )
+                }
             }
             .frame(height: 200)
             .padding(.horizontal)

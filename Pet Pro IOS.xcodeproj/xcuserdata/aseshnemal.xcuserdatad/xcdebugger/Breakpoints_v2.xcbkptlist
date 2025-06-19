@@ -16,8 +16,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "210"
             endingLineNumber = "210"
-            landmarkName = "HealthData"
-            landmarkType = "14">
+            landmarkName = "body"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -32,38 +32,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "220"
             endingLineNumber = "220"
-            landmarkName = "sampleData()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "5599830D-602D-43C2-8E28-489E7DAB5315 - 9acbc76272c984e8"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Int) -&gt; Pet_Pro_IOS.HealthData in static Pet_Pro_IOS.HealthData.sampleData() -&gt; Swift.Array&lt;Pet_Pro_IOS.HealthData&gt;"
-                  moduleName = "Pet Pro IOS.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/aseshnemal/Desktop/app/Pet%20Pro%20IOS/Pet%20Pro%20IOS/PetHealthStatsView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "220"
-                  endingLineNumber = "220">
-               </Location>
-               <Location
-                  uuid = "5599830D-602D-43C2-8E28-489E7DAB5315 - b77f63ea2ea9a5f4"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static Pet_Pro_IOS.HealthData.sampleData() -&gt; Swift.Array&lt;Pet_Pro_IOS.HealthData&gt;"
-                  moduleName = "Pet Pro IOS.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/aseshnemal/Desktop/app/Pet%20Pro%20IOS/Pet%20Pro%20IOS/PetHealthStatsView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "220"
-                  endingLineNumber = "220">
-               </Location>
-            </Locations>
+            landmarkName = "HealthData"
+            landmarkType = "14">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
