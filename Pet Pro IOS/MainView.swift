@@ -110,12 +110,13 @@ struct MainView: View {
                 .padding(8)
                 .background(Color.white)
                 
-                // Map view for pet locations
-                Map(coordinateRegion: $region, annotationItems: petLocations) { location in
-                    MapMarker(coordinate: location.coordinate, tint: .red)
-                }
-                .frame(height: 531)
-                .padding(.horizontal, 16)
+            // Map view for pet locations
+            // Removed as per user request to show map only on pet live location page
+//            Map(coordinateRegion: $region, annotationItems: petLocations) { location in
+//                MapMarker(coordinate: location.coordinate, tint: .red)
+//            }
+//            .frame(height: 531)
+//            .padding(.horizontal, 16)
                 
                 // Offer title
                 Text("Invest in your pet's health, get out pet tracker today")
@@ -176,14 +177,14 @@ struct MainView: View {
                 }
                 .tag(1)
             
-            Text("Stats View Placeholder")
+            PetHealthStatsView()
                 .tabItem {
                     Image(systemName: "chart.bar.fill")
                     Text("Stats")
                 }
                 .tag(2)
             
-            Text("Account View Placeholder")
+            AccountView()
                 .tabItem {
                     Image(systemName: "person.crop.circle.fill")
                     Text("Account")
