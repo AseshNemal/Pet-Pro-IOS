@@ -1,4 +1,3 @@
-//
 //  MainView.swift
 //  Pet Pro IOS
 //
@@ -25,6 +24,8 @@ struct MainView: View {
     ]
     
     @State private var selectedTab = 0
+    @State private var showSmartSummary = false
+    @State private var showPromotionalContent = false
     
     var month: String {
         let formatter = DateFormatter()
@@ -94,13 +95,23 @@ struct MainView: View {
                 
                 // Tab section
                 HStack(spacing: 16) {
-                    Text("Smart Summary")
-                        .fontWeight(.bold)
-                        .foregroundColor(.black)
-                        .frame(width: 137, alignment: .leading)
-                    Text("Day Logs")
-                        .foregroundColor(.gray)
-                        .frame(width: 96, alignment: .leading)
+                    Button(action: {
+                        showSmartSummary = true
+                        showPromotionalContent = false
+                    }) {
+                        Text("Smart Summary")
+                            .fontWeight(.bold)
+                            .foregroundColor(showSmartSummary ? .black : .gray)
+                            .frame(width: 137, alignment: .leading)
+                    }
+                    Button(action: {
+                        showSmartSummary = false
+                        showPromotionalContent = false
+                    }) {
+                        Text("Day Logs")
+                            .foregroundColor(showSmartSummary ? .gray : .black)
+                            .frame(width: 96, alignment: .leading)
+                    }
                     NavigationLink(destination: LivePetLocationsView()) {
                         Text("Pet Live Location")
                             .foregroundColor(.blue)
@@ -110,56 +121,89 @@ struct MainView: View {
                 .padding(8)
                 .background(Color.white)
                 
-                // Map view for pet locations
-                Map(coordinateRegion: $region, annotationItems: petLocations) { location in
-                    MapMarker(coordinate: location.coordinate, tint: .red)
-                }
-                .frame(height: 531)
-                .padding(.horizontal, 16)
-                
-                // Offer title
-                Text("Invest in your pet's health, get out pet tracker today")
-                    .font(.system(size: 18, weight: .bold))
-                    .foregroundColor(.black)
-                    .padding(16)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                
-                // Special offer banner
-                Color.yellow
-                    .frame(height: 40)
-                    .overlay(
-                        Text("Limited time special offer")
-                            .fontWeight(.bold)
+                if showPromotionalContent {
+                    VStack {
+                        Text("Invest in your pet's health, get out pet tracker today")
+                            .font(.system(size: 18, weight: .bold))
                             .foregroundColor(.black)
-                            .padding(8),
-                        alignment: .leading
-                    )
-                
-                // Ad image
-                Image("ad_image")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(height: 200)
-                
-                // Offer button
-                Button(action: {
-                    // Offer button action
-                }) {
-                    Text("Gift your pet good health")
-                        .foregroundColor(.white)
-                        .frame(maxWidth: .infinity)
-                        .padding(12)
-                        .background(Color.red)
-                        .cornerRadius(8)
+                            .padding(16)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                        
+                        Color.yellow
+                            .frame(height: 40)
+                            .overlay(
+                                Text("Limited time special offer")
+                                    .fontWeight(.bold)
+                                    .foregroundColor(.black)
+                                    .padding(8),
+                                alignment: .leading
+                            )
+                        
+                        Image("ad_image")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(height: 200)
+                        
+                        Button(action: {
+                            // Offer button action
+                        }) {
+                            Text("Gift your pet good health")
+                                .foregroundColor(.white)
+                                .frame(maxWidth: .infinity)
+                                .padding(12)
+                                .background(Color.red)
+                                .cornerRadius(8)
+                        }
+                        .padding(.horizontal, 16)
+                        
+                        Text("30% discount offer")
+                            .fontWeight(.bold)
+                            .foregroundColor(.red)
+                            .padding(8)
+                            .frame(maxWidth: .infinity, alignment: .center)
+                    }
+                } else if showSmartSummary {
+                    ScrollView {
+                        VStack(alignment: .leading, spacing: 12) {
+                            Text("Pet Health Summary")
+                                .font(.system(size: 22, weight: .bold))
+                                .padding(.leading, 16)
+                                .padding(.top, 16)
+                            
+                            Text("Heart Rate: 85 bpm")
+                                .font(.system(size: 16))
+                                .padding(.leading, 28)
+                            
+                            ProgressView(value: 85, total: 200)
+                                .progressViewStyle(LinearProgressViewStyle(tint: .red))
+                                .frame(width: 364, height: 23)
+                                .padding(.leading, 16)
+                            
+                            Text("Steps: 1200")
+                                .font(.system(size: 16))
+                                .padding(.leading, 28)
+                            
+                            Text("Temperature: 38°C")
+                                .font(.system(size: 16))
+                                .padding(.leading, 28)
+                            
+                            Text("Location: Park")
+                                .font(.system(size: 16))
+                                .padding(.leading, 28)
+                            
+                            Text("Alert: Pet needs rest")
+                                .font(.system(size: 16))
+                                .foregroundColor(.red)
+                                .padding(.leading, 28)
+                            
+                            Spacer()
+                        }
+                    }
+                } else {
+                    DayLogCalendarView()
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .background(Color.white)
                 }
-                .padding(.horizontal, 16)
-                
-                // Discount text
-                Text("30% discount offer")
-                    .fontWeight(.bold)
-                    .foregroundColor(.red)
-                    .padding(8)
-                    .frame(maxWidth: .infinity, alignment: .center)
                 
                 Spacer()
             }
@@ -191,6 +235,10 @@ struct MainView: View {
                 .tag(3)
         }
         .background(Color.white.edgesIgnoringSafeArea(.all))
+        .onAppear {
+            showPromotionalContent = true
+            showSmartSummary = false
+        }
     }
 }
 

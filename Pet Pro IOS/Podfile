@@ -1,0 +1,14 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '14.0'
+
+target 'Pet Pro IOS' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for Pet Pro IOS
+  pod 'Firebase/Core'
+  pod 'Firebase/Database'
+
+  # Add other pods here as needed
+
+end
