@@ -95,6 +95,8 @@ struct PetHealthStatsView: View {
                     let battery = Double(batteryStr ?? "")
                     let timestampStr = dict["timestamp"] as? String ?? ""
                     let dateFormatter = DateFormatter()
+                    dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+                    dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
                     dateFormatter.dateFormat = "dd/MM/yyyy, HH:mm:ss"
                     let date: Date? = dateFormatter.date(from: timestampStr)
                     let displayDateFormatter = DateFormatter()
@@ -187,7 +189,7 @@ struct TableView: View {
                 }
                 .padding(.horizontal)
                 
-                ForEach(data.prefix(10), id: \.id) { item in
+                ForEach(data.prefix(10).sorted { ($0.date ?? Date.distantPast) > ($1.date ?? Date.distantPast) }, id: \.id) { item in
                     HStack {
                         Text(item.dateString).frame(width: 100, alignment: .leading)
                         Text(String(format: "%.1f", item.temperature ?? 0)).frame(width: 80, alignment: .leading)
