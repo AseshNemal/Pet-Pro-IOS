@@ -1,5 +1,7 @@
 import SwiftUI
 import Charts
+import FirebaseDatabase
+import FirebaseCore
 
 struct PetHealthStatsView: View {
     @State private var healthDataList: [HealthData] = []
@@ -72,15 +74,59 @@ struct PetHealthStatsView: View {
     }
     
     func fetchHealthData() {
-        // Placeholder for Firebase data fetching logic
-        // For now, simulate data loading
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            self.healthDataList = HealthData.sampleData()
-            let formatter = DateFormatter()
-            formatter.dateStyle = .medium
-            self.lastUpdated = "Last updated: \(formatter.string(from: Date()))"
-            self.connectionStatus = .connected
-        }
+        let ref = Database.database().reference(withPath: "petcare")
+        ref.observe(.value, with: { snapshot in
+            var newData: [HealthData] = []
+            for child in snapshot.children {
+                if let snap = child as? DataSnapshot,
+                   let dict = snap.value as? [String: Any] {
+                    // Adjust keys based on actual data structure
+                    let temperatureStr = dict["En_temperature"] as? String ?? dict["Temperature"] as? String
+                    let temperature = Double(temperatureStr ?? "")
+                    let heartRateStr = dict["hartrate"] as? String ?? dict["HeartRate"] as? String
+                    let heartRate = Double(heartRateStr ?? "")
+                    let stepsStr = dict["step"] as? String ?? dict["Steps"] as? String
+                    let steps = Double(stepsStr ?? "")
+                    let airQualityStr = dict["AirQuality"] as? String
+                    let airQuality = Double(airQualityStr ?? "")
+                    let humidityStr = dict["en_humidity"] as? String ?? dict["Humidity"] as? String
+                    let humidity = Double(humidityStr ?? "")
+                    let batteryStr = dict["Battery"] as? String
+                    let battery = Double(batteryStr ?? "")
+                    let timestampStr = dict["timestamp"] as? String ?? ""
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "dd/MM/yyyy, HH:mm:ss"
+                    let date: Date? = dateFormatter.date(from: timestampStr)
+                    let displayDateFormatter = DateFormatter()
+                    displayDateFormatter.dateStyle = .medium
+                    displayDateFormatter.timeStyle = .short
+                    let dateString = date != nil ? displayDateFormatter.string(from: date!) : ""
+                    let healthData = HealthData(
+                        temperature: temperature,
+                        heartRate: heartRate,
+                        steps: steps,
+                        airQuality: airQuality,
+                        humidity: humidity,
+                        battery: battery,
+                        dateString: dateString,
+                        date: date ?? Date.distantPast
+                    )
+                    newData.append(healthData)
+                }
+            }
+            DispatchQueue.main.async {
+                self.healthDataList = newData.sorted { ($0.date ?? Date.distantPast) > ($1.date ?? Date.distantPast) }
+                let formatter = DateFormatter()
+                formatter.dateStyle = .medium
+                self.lastUpdated = "Last updated: \(formatter.string(from: Date()))"
+                self.connectionStatus = .connected
+            }
+        }, withCancel: { error in
+            print("Failed to fetch data: \(error.localizedDescription)")
+            DispatchQueue.main.async {
+                self.connectionStatus = .disconnected
+            }
+        })
     }
 }
 
@@ -165,6 +211,7 @@ struct HealthData: Identifiable {
     let humidity: Double?
     let battery: Double?
     let dateString: String
+    let date: Date?
     
     static func sampleData() -> [HealthData] {
         let formatter = DateFormatter()
@@ -177,7 +224,8 @@ struct HealthData: Identifiable {
                 airQuality: Double.random(in: 10...200),
                 humidity: Double.random(in: 30...70),
                 battery: Double.random(in: 20...100),
-                dateString: formatter.string(from: Calendar.current.date(byAdding: .day, value: -i, to: Date())!)
+                dateString: formatter.string(from: Calendar.current.date(byAdding: .day, value: -i, to: Date())!),
+                date: Calendar.current.date(byAdding: .day, value: -i, to: Date())
             )
         }
     }
