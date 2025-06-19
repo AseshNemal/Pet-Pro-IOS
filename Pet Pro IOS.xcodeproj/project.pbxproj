@@ -1,0 +1,555 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXContainerItemProxy section */
+		310EEAE72E0423D2007B4BF6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 310EEAD12E0423D0007B4BF6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 310EEAD82E0423D0007B4BF6;
+			remoteInfo = "Pet Pro IOS";
+		};
+		310EEAF12E0423D2007B4BF6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 310EEAD12E0423D0007B4BF6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 310EEAD82E0423D0007B4BF6;
+			remoteInfo = "Pet Pro IOS";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		310EEAD92E0423D0007B4BF6 /* Pet Pro IOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pet Pro IOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		310EEAE62E0423D2007B4BF6 /* Pet Pro IOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Pet Pro IOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		310EEAF02E0423D2007B4BF6 /* Pet Pro IOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Pet Pro IOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		310EEADB2E0423D0007B4BF6 /* Pet Pro IOS */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "Pet Pro IOS";
+			sourceTree = "<group>";
+		};
+		310EEAE92E0423D2007B4BF6 /* Pet Pro IOSTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "Pet Pro IOSTests";
+			sourceTree = "<group>";
+		};
+		310EEAF32E0423D2007B4BF6 /* Pet Pro IOSUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "Pet Pro IOSUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		310EEAD62E0423D0007B4BF6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		310EEAE32E0423D2007B4BF6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		310EEAED2E0423D2007B4BF6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		310EEAD02E0423D0007B4BF6 = {
+			isa = PBXGroup;
+			children = (
+				310EEADB2E0423D0007B4BF6 /* Pet Pro IOS */,
+				310EEAE92E0423D2007B4BF6 /* Pet Pro IOSTests */,
+				310EEAF32E0423D2007B4BF6 /* Pet Pro IOSUITests */,
+				310EEADA2E0423D0007B4BF6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		310EEADA2E0423D0007B4BF6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				310EEAD92E0423D0007B4BF6 /* Pet Pro IOS.app */,
+				310EEAE62E0423D2007B4BF6 /* Pet Pro IOSTests.xctest */,
+				310EEAF02E0423D2007B4BF6 /* Pet Pro IOSUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		310EEAD82E0423D0007B4BF6 /* Pet Pro IOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 310EEAFA2E0423D2007B4BF6 /* Build configuration list for PBXNativeTarget "Pet Pro IOS" */;
+			buildPhases = (
+				310EEAD52E0423D0007B4BF6 /* Sources */,
+				310EEAD62E0423D0007B4BF6 /* Frameworks */,
+				310EEAD72E0423D0007B4BF6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				310EEADB2E0423D0007B4BF6 /* Pet Pro IOS */,
+			);
+			name = "Pet Pro IOS";
+			packageProductDependencies = (
+			);
+			productName = "Pet Pro IOS";
+			productReference = 310EEAD92E0423D0007B4BF6 /* Pet Pro IOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		310EEAE52E0423D2007B4BF6 /* Pet Pro IOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 310EEAFD2E0423D2007B4BF6 /* Build configuration list for PBXNativeTarget "Pet Pro IOSTests" */;
+			buildPhases = (
+				310EEAE22E0423D2007B4BF6 /* Sources */,
+				310EEAE32E0423D2007B4BF6 /* Frameworks */,
+				310EEAE42E0423D2007B4BF6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				310EEAE82E0423D2007B4BF6 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				310EEAE92E0423D2007B4BF6 /* Pet Pro IOSTests */,
+			);
+			name = "Pet Pro IOSTests";
+			packageProductDependencies = (
+			);
+			productName = "Pet Pro IOSTests";
+			productReference = 310EEAE62E0423D2007B4BF6 /* Pet Pro IOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		310EEAEF2E0423D2007B4BF6 /* Pet Pro IOSUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 310EEB002E0423D2007B4BF6 /* Build configuration list for PBXNativeTarget "Pet Pro IOSUITests" */;
+			buildPhases = (
+				310EEAEC2E0423D2007B4BF6 /* Sources */,
+				310EEAED2E0423D2007B4BF6 /* Frameworks */,
+				310EEAEE2E0423D2007B4BF6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				310EEAF22E0423D2007B4BF6 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				310EEAF32E0423D2007B4BF6 /* Pet Pro IOSUITests */,
+			);
+			name = "Pet Pro IOSUITests";
+			packageProductDependencies = (
+			);
+			productName = "Pet Pro IOSUITests";
+			productReference = 310EEAF02E0423D2007B4BF6 /* Pet Pro IOSUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		310EEAD12E0423D0007B4BF6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1640;
+				LastUpgradeCheck = 1640;
+				TargetAttributes = {
+					310EEAD82E0423D0007B4BF6 = {
+						CreatedOnToolsVersion = 16.4;
+					};
+					310EEAE52E0423D2007B4BF6 = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = 310EEAD82E0423D0007B4BF6;
+					};
+					310EEAEF2E0423D2007B4BF6 = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = 310EEAD82E0423D0007B4BF6;
+					};
+				};
+			};
+			buildConfigurationList = 310EEAD42E0423D0007B4BF6 /* Build configuration list for PBXProject "Pet Pro IOS" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 310EEAD02E0423D0007B4BF6;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 310EEADA2E0423D0007B4BF6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				310EEAD82E0423D0007B4BF6 /* Pet Pro IOS */,
+				310EEAE52E0423D2007B4BF6 /* Pet Pro IOSTests */,
+				310EEAEF2E0423D2007B4BF6 /* Pet Pro IOSUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		310EEAD72E0423D0007B4BF6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		310EEAE42E0423D2007B4BF6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		310EEAEE2E0423D2007B4BF6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		310EEAD52E0423D0007B4BF6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		310EEAE22E0423D2007B4BF6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		310EEAEC2E0423D2007B4BF6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		310EEAE82E0423D2007B4BF6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 310EEAD82E0423D0007B4BF6 /* Pet Pro IOS */;
+			targetProxy = 310EEAE72E0423D2007B4BF6 /* PBXContainerItemProxy */;
+		};
+		310EEAF22E0423D2007B4BF6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 310EEAD82E0423D0007B4BF6 /* Pet Pro IOS */;
+			targetProxy = 310EEAF12E0423D2007B4BF6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		310EEAF82E0423D2007B4BF6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		310EEAF92E0423D2007B4BF6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		310EEAFB2E0423D2007B4BF6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "aseshnemal.Pet-Pro-IOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		310EEAFC2E0423D2007B4BF6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "aseshnemal.Pet-Pro-IOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		310EEAFE2E0423D2007B4BF6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "aseshnemal.Pet-Pro-IOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pet Pro IOS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Pet Pro IOS";
+			};
+			name = Debug;
+		};
+		310EEAFF2E0423D2007B4BF6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "aseshnemal.Pet-Pro-IOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pet Pro IOS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Pet Pro IOS";
+			};
+			name = Release;
+		};
+		310EEB012E0423D2007B4BF6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "aseshnemal.Pet-Pro-IOSUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Pet Pro IOS";
+			};
+			name = Debug;
+		};
+		310EEB022E0423D2007B4BF6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "aseshnemal.Pet-Pro-IOSUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Pet Pro IOS";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		310EEAD42E0423D0007B4BF6 /* Build configuration list for PBXProject "Pet Pro IOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				310EEAF82E0423D2007B4BF6 /* Debug */,
+				310EEAF92E0423D2007B4BF6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		310EEAFA2E0423D2007B4BF6 /* Build configuration list for PBXNativeTarget "Pet Pro IOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				310EEAFB2E0423D2007B4BF6 /* Debug */,
+				310EEAFC2E0423D2007B4BF6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		310EEAFD2E0423D2007B4BF6 /* Build configuration list for PBXNativeTarget "Pet Pro IOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				310EEAFE2E0423D2007B4BF6 /* Debug */,
+				310EEAFF2E0423D2007B4BF6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		310EEB002E0423D2007B4BF6 /* Build configuration list for PBXNativeTarget "Pet Pro IOSUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				310EEB012E0423D2007B4BF6 /* Debug */,
+				310EEB022E0423D2007B4BF6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 310EEAD12E0423D0007B4BF6 /* Project object */;
+}
