@@ -14,55 +14,58 @@ struct PetHealthStatsView: View {
     
     var body: some View {
         NavigationView {
-            ScrollView {
-                VStack(spacing: 16) {
-                    // Connection status and summary
-                    HStack {
-                        Text("Device Status: ")
-                            .font(.headline)
-                        Image(systemName: connectionStatus == .connected ? "wifi" : "wifi.slash")
-                            .foregroundColor(connectionStatus == .connected ? .green : .orange)
-                        Text(connectionStatus == .connected ? "Connected" : "Historical Data")
-                            .foregroundColor(connectionStatus == .connected ? .green : .orange)
-                        Spacer()
-                        Text(lastUpdated)
-                            .font(.caption)
-                            .foregroundColor(.gray)
+            ZStack {
+                Color("light_yellow").ignoresSafeArea()
+                ScrollView {
+                    VStack(spacing: 16) {
+                        // Connection status and summary
+                        HStack {
+                            Text("Device Status: ")
+                                .font(.headline)
+                            Image(systemName: connectionStatus == .connected ? "wifi" : "wifi.slash")
+                                .foregroundColor(connectionStatus == .connected ? .green : .orange)
+                            Text(connectionStatus == .connected ? "Connected" : "Historical Data")
+                                .foregroundColor(connectionStatus == .connected ? .green : .orange)
+                            Spacer()
+                            Text(lastUpdated)
+                                .font(.caption)
+                                .foregroundColor(.gray)
+                        }
+                        .padding(.horizontal)
+                        
+                        // Summary grid
+                        LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 12) {
+                            StatView(title: "Temperature", value: latestValue(for: \.temperature), unit: "°C")
+                            StatView(title: "Heart Rate", value: latestValue(for: \.heartRate), unit: "BPM")
+                            StatView(title: "Steps", value: latestValue(for: \.steps), unit: "")
+                            StatView(title: "Air Quality", value: latestValue(for: \.airQuality), unit: "ppm")
+                            StatView(title: "Humidity", value: latestValue(for: \.humidity), unit: "%")
+                            StatView(title: "Battery", value: latestValue(for: \.battery), unit: "%")
+                        }
+                        .padding(.horizontal)
+                        
+                        // Sorted data for charts and table
+                        let sortedHealthDataList = healthDataList.sorted { ($0.date ?? Date.distantPast) > ($1.date ?? Date.distantPast) }
+                        
+                        // Charts
+                        Group {
+                            ChartView(title: "Temperature (°C)", dataPoints: sortedHealthDataList.map { $0.temperature ?? 0 })
+                            ChartView(title: "Heart Rate (BPM)", dataPoints: sortedHealthDataList.map { $0.heartRate ?? 0 })
+                            ChartView(title: "Steps Count", dataPoints: sortedHealthDataList.map { $0.steps ?? 0 })
+                            ChartView(title: "Air Quality (ppm)", dataPoints: sortedHealthDataList.map { $0.airQuality ?? 0 })
+                            ChartView(title: "Humidity (%)", dataPoints: sortedHealthDataList.map { $0.humidity ?? 0 })
+                        }
+                        
+                        // Data table
+                        VStack(alignment: .leading) {
+                            Text("Recent Health Data")
+                                .font(.headline)
+                                .padding(.horizontal)
+                            TableView(data: sortedHealthDataList)
+                        }
                     }
-                    .padding(.horizontal)
-                    
-                    // Summary grid
-                    LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 12) {
-                        StatView(title: "Temperature", value: latestValue(for: \.temperature), unit: "°C")
-                        StatView(title: "Heart Rate", value: latestValue(for: \.heartRate), unit: "BPM")
-                        StatView(title: "Steps", value: latestValue(for: \.steps), unit: "")
-                        StatView(title: "Air Quality", value: latestValue(for: \.airQuality), unit: "ppm")
-                        StatView(title: "Humidity", value: latestValue(for: \.humidity), unit: "%")
-                        StatView(title: "Battery", value: latestValue(for: \.battery), unit: "%")
-                    }
-                    .padding(.horizontal)
-                    
-                    // Sorted data for charts and table
-                    let sortedHealthDataList = healthDataList.sorted { ($0.date ?? Date.distantPast) > ($1.date ?? Date.distantPast) }
-                    
-                    // Charts
-                    Group {
-                        ChartView(title: "Temperature (°C)", dataPoints: sortedHealthDataList.map { $0.temperature ?? 0 })
-                        ChartView(title: "Heart Rate (BPM)", dataPoints: sortedHealthDataList.map { $0.heartRate ?? 0 })
-                        ChartView(title: "Steps Count", dataPoints: sortedHealthDataList.map { $0.steps ?? 0 })
-                        ChartView(title: "Air Quality (ppm)", dataPoints: sortedHealthDataList.map { $0.airQuality ?? 0 })
-                        ChartView(title: "Humidity (%)", dataPoints: sortedHealthDataList.map { $0.humidity ?? 0 })
-                    }
-                    
-                    // Data table
-                    VStack(alignment: .leading) {
-                        Text("Recent Health Data")
-                            .font(.headline)
-                            .padding(.horizontal)
-                        TableView(data: sortedHealthDataList)
-                    }
+                    .padding(.vertical)
                 }
-                .padding(.vertical)
             }
             .navigationTitle("Stats")
             .onAppear(perform: fetchHealthData)

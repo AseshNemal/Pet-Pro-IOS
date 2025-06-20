@@ -17,18 +17,9 @@ struct RegistrationView: View {
     var body: some View {
         VStack {
             HStack {
-                Button(action: {
-                    presentationMode.wrappedValue.dismiss()
-                }) {
-                    Image(systemName: "chevron.left")
-                        .resizable()
-                        .frame(width: 20, height: 20)
-                        .padding(8)
-                }
-                Spacer()
+                
             }
-            .padding(.leading, 16)
-            .padding(.top, 16)
+                
 
             Text("Sign Up")
                 .font(.system(size: 34, weight: .bold))

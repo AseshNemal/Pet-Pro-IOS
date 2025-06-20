@@ -24,11 +24,14 @@ struct LivePetLocationsView: View {
     @State private var petLocations: [LivePetLocation] = []
     
     var body: some View {
-        VStack {
-            Map(coordinateRegion: $region, annotationItems: petLocations) { location in
-                MapMarker(coordinate: location.coordinate, tint: .red)
+        ZStack {
+            Color("light_yellow").ignoresSafeArea()
+            VStack {
+                Map(coordinateRegion: $region, annotationItems: petLocations) { location in
+                    MapMarker(coordinate: location.coordinate, tint: .red)
+                }
+                .edgesIgnoringSafeArea(.all)
             }
-            .edgesIgnoringSafeArea(.all)
         }
         .navigationTitle("Pet Live Locations")
         .navigationBarTitleDisplayMode(.inline)
