@@ -55,24 +55,34 @@ struct RecordsView: View {
                     }
                     .padding()
                 } else {
-                    // Medicine and Supplements placeholder content
-                    VStack(alignment: .leading, spacing: 20) {
-                        Text("Water")
-                            .font(.system(size: 20, weight: .bold))
-                            .foregroundColor(.black)
-                        Text("Dry Food")
-                            .font(.system(size: 20, weight: .bold))
-                            .foregroundColor(.black)
-                        Text("Reminders")
-                            .font(.system(size: 20, weight: .bold))
-                            .foregroundColor(.black)
-                        Text("12.0 oz")
-                            .font(.system(size: 16))
-                            .foregroundColor(.black)
-                        Text("12.0 oz")
-                            .font(.system(size: 16))
-                            .foregroundColor(.black)
+                    // Medicine and Supplements improved dummy data display
+                    List {
+                        Section(header: Text("Medicine and Supplements")
+                                    .font(.headline)
+                                    .foregroundColor(.black)) {
+                            HStack {
+                                Text("Water")
+                                Spacer()
+                                Text("12.0 oz")
+                            }
+                            HStack {
+                                Text("Dry Food")
+                                Spacer()
+                                Text("24.0 oz")
+                            }
+                            HStack {
+                                Text("Vitamins")
+                                Spacer()
+                                Text("2 tablets")
+                            }
+                            HStack {
+                                Text("Supplements")
+                                Spacer()
+                                Text("1 capsule")
+                            }
+                        }
                     }
+                    .listStyle(InsetGroupedListStyle())
                     .padding(.horizontal, 16)
                 }
                 

@@ -15,17 +15,21 @@ struct PetLocation: Identifiable {
 struct MainView: View {
     @State private var currentDate = Date()
     @State private var region = MKCoordinateRegion(
-        center: CLLocationCoordinate2D(latitude: 6.9154643, longitude: 79.9742903),
+        center: CLLocationCoordinate2D(latitude: 0, longitude: 0),
         span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
     )
     
     let petLocations = [
-        PetLocation(coordinate: CLLocationCoordinate2D(latitude: 6.9154643, longitude: 79.9742903))
+        PetLocation(coordinate: CLLocationCoordinate2D(latitude: 0, longitude: 0))
     ]
     
-    @State private var selectedTab = 0
-    @State private var showSmartSummary = false
-    @State private var showPromotionalContent = false
+@State private var selectedTab = 0
+@State private var showSmartSummary = true
+@State private var showPromotionalContent = false
+@State private var isFreshLoad = true
+
+// Synchronize selectedTab with showSmartSummary
+// Update onAppear to not override showSmartSummary
     
     var month: String {
         let formatter = DateFormatter()
@@ -96,32 +100,46 @@ struct MainView: View {
                     .padding(.top, 8)
                     
                     // Tab section
-                    HStack(spacing: 16) {
-                        Button(action: {
-                            showSmartSummary = true
-                            showPromotionalContent = false
-                        }) {
-                            Text("Smart Summary")
-                                .fontWeight(.bold)
-                                .foregroundColor(showSmartSummary ? .black : .gray)
-                                .frame(width: 137, alignment: .leading)
-                        }
-                        Button(action: {
-                            showSmartSummary = false
-                            showPromotionalContent = false
-                        }) {
-                            Text("Day Logs")
-                                .foregroundColor(showSmartSummary ? .gray : .black)
-                                .frame(width: 96, alignment: .leading)
-                        }
-                        NavigationLink(destination: LivePetLocationsView()) {
-                            Text("Pet Live Location")
-                                .foregroundColor(.blue)
-                                .frame(alignment: .leading)
-                        }
+HStack(spacing: 16) {
+                    Button(action: {
+                        showSmartSummary = true
+                        showPromotionalContent = false
+                        isFreshLoad = false
+                    }) {
+                        Text("Smart Summary")
+                            .fontWeight(.bold)
+                            .foregroundColor(!isFreshLoad && showSmartSummary ? .black : .gray)
+                            .frame(width: 137, alignment: .leading)
+                            .padding(8)
+                            .background(!isFreshLoad && showSmartSummary ? Color.yellow.opacity(0.7) : Color.clear)
+                            .cornerRadius(8)
+                            .shadow(color: !isFreshLoad && showSmartSummary ? Color.yellow.opacity(0.5) : Color.clear, radius: 5, x: 0, y: 0)
                     }
-                    .padding(8)
-                    .background(Color.white)
+                    Button(action: {
+                        showSmartSummary = false
+                        showPromotionalContent = false
+                        isFreshLoad = false
+                    }) {
+                        Text("Day Logs")
+                            .foregroundColor(!isFreshLoad && !showSmartSummary ? .black : .gray)
+                            .frame(width: 96, alignment: .leading)
+                            .padding(8)
+                            .background(!isFreshLoad && !showSmartSummary ? Color.yellow.opacity(0.7) : Color.clear)
+                            .cornerRadius(8)
+                            .shadow(color: !isFreshLoad && !showSmartSummary ? Color.yellow.opacity(0.5) : Color.clear, radius: 5, x: 0, y: 0)
+                    }
+                    NavigationLink(destination: LivePetLocationsView()) {
+                        Text("Pet Live Location")
+                            .foregroundColor(!isFreshLoad ? .black : .gray)
+                            .frame(alignment: .leading)
+                            .padding(8)
+                            .background(Color.clear)
+                            .cornerRadius(8)
+                            .shadow(color: Color.clear, radius: 0, x: 0, y: 0)
+                    }
+                }
+                .padding(8)
+                .background(Color(red: 211/255, green: 211/255, blue: 211/255) )
                     
                     if showPromotionalContent {
                         VStack {
@@ -241,6 +259,7 @@ struct MainView: View {
         .onAppear {
             showPromotionalContent = true
             showSmartSummary = false
+            isFreshLoad = true
         }
     }
 }
